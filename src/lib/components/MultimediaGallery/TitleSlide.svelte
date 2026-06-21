@@ -22,14 +22,10 @@ USAGE EXAMPLE:
 
 <div class="slide" data-slide>
   <div class="masthead">
-    <a
-      href="https://www.nycitynewsservice.com/"
-      class="logo"
-      aria-label="NYCity News Service"
-    >
+    <a href="/" class="logo" aria-label="Tom and Evie home">
       <span class="logo-text">
-        <span class="logo-nycity">NYCITY</span><span class="logo-news-service"
-          >News Service</span
+        <span class="logo-primary">TOM & EVIE</span><span class="logo-secondary"
+          >Family Site</span
         >
       </span>
     </a>
@@ -59,9 +55,9 @@ USAGE EXAMPLE:
     padding: var(--spacing-xs) var(--spacing-sm);
     background: linear-gradient(
       90deg,
-      var(--color-cuny-blue-dark) 0%,
+      var(--color-brand-blue-dark) 0%,
       var(--color-accent) 50%,
-      var(--color-cuny-blue-light) 100%
+      var(--color-brand-blue-light) 100%
     );
     background-size: 200% 100%;
     animation: gradient-sweep 6s ease-in-out infinite;
@@ -105,7 +101,7 @@ USAGE EXAMPLE:
     border: 1px solid var(--color-white);
   }
 
-  .logo-nycity {
+  .logo-primary {
     background-color: var(--color-white);
     color: var(--color-accent);
     font-family: var(--font-sans);
@@ -118,7 +114,7 @@ USAGE EXAMPLE:
     align-items: center;
   }
 
-  .logo-news-service {
+  .logo-secondary {
     color: var(--color-white);
     font-family: var(--font-sans);
     font-size: var(--font-size-sm);

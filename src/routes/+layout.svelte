@@ -1,42 +1,56 @@
-<!--
-@component
-This is the LAYOUT file.
-It wraps every page on your site.
-Use it for headers, footers, and navigation that appear on all pages.
--->
 <script>
-  // Import global styles
   import '../app.scss';
-
-  // Import site-wide components
+  import { base } from '$app/paths';
+  import { page } from '$app/state';
+  import HomeNav from '$lib/components/Layout/HomeNav.svelte';
   import SiteHeader from '$lib/components/Layout/SiteHeader.svelte';
   import SiteFooter from '$lib/components/Layout/SiteFooter.svelte';
 
-  // Access page-level settings (from +page.js)
-  import { page } from '$app/state';
-
-  // In Svelte 5, we use $props() to receive the page content
   let { children } = $props();
+
+  const isHome = $derived(
+    page.url.pathname === `${base}/` || page.url.pathname === base
+  );
 </script>
 
-{#if page.data.showHeader !== false}
+{#if isHome}
+  <div class="home-shell">
+    <HomeNav />
+    <main class="home-main">
+      {@render children()}
+    </main>
+    <SiteFooter home={true} />
+  </div>
+{:else}
   <SiteHeader />
-{/if}
-
-<main>
-  <!-- This renders the current page's content -->
-  {@render children()}
-</main>
-
-{#if page.data.showFooter !== false}
+  <main>
+    {@render children()}
+  </main>
   <SiteFooter />
 {/if}
 
 <style>
-  /* Styles here only apply to this layout */
   main {
-    min-height: calc(
-      100vh - var(--site-chrome-height)
-    ); /* Ensure footer stays at bottom */
+    min-height: 100vh;
+  }
+
+  .home-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      120deg,
+      var(--color-brand-blue-dark),
+      var(--color-brand-blue-light)
+    );
+  }
+
+  .home-main {
+    background: transparent;
+    min-height: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 </style>
