@@ -18,7 +18,7 @@
         text="Evie is almost eight and likes craft, sushi, stuffed animals and puzzles."
       />
       <Paragraph
-        text="Tom is almost six and enjoys hot chips, playing games and talking about space."
+        text="Tom is almost six and enjoys hot chips, playing games and talking about space (a lot)."
       />
     {/snippet}
   </TextSection>
