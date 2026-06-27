@@ -2,6 +2,7 @@
   import EmbedVideo from '$lib/components/Content/EmbedVideo.svelte';
   import TextSection from '$lib/components/Content/TextSection.svelte';
   import Paragraph from '$lib/components/Content/Paragraph.svelte';
+  let {data} = $props();
 </script>
 
 <svelte:head>
@@ -17,13 +18,8 @@
     {/snippet}
   </TextSection>
 
-  <EmbedVideo
-    title="Puzzle time"
-    src="https://youtu.be/g39tfyZ0nMw"
-  />
+    {#each data.videos as video }
+        <EmbedVideo title={video.title} src={video.src}/>
+    {/each}
 
-  <EmbedVideo
-    title="Tom explains the solar system"
-    src="https://youtu.be/iTS4LjgsKkY"
-  />
 </div>
